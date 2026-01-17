@@ -6,4 +6,6 @@ void main() {
   String lName = ('Hassan');
   String fullName = fName + ' ' + lName;//concatenate strings
   print(fullName);
+  print('$fName $lName');//another method to concatenate strings using interpolation
+  print(fName+' '+lName);//another method to concatenate strings
 }
