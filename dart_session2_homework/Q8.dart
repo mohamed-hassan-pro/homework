@@ -12,6 +12,7 @@ void main() {
   };
   print('Book title: ${book['title']}');
 
+  book['price'] = 29.99;
   book['author'] = 'Moubdi3'; // Adding new key 'author'
 
   print('Book all keys: ${book.keys}');

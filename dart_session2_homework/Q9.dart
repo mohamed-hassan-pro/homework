@@ -19,5 +19,5 @@ void main() {
   print('Grade of the second student: ${students[1]['grade']}');
 
   double sumGrade = students[0]['grade'] + students[1]['grade'];
-  print('Average grade: ${sumGrade / 2}');
+  print('Average grade: ${sumGrade / students.length}');
 }
