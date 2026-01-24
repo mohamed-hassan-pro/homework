@@ -16,13 +16,13 @@ void main() {
   print('Enter the price: ');
   num? price = num.tryParse(stdin.readLineSync()!);
 
-  double discount = 0;
+  double finalPrice = 0;
 
   if (isStudent!.toUpperCase() == 'Y' ||
       hasCoupon!.toUpperCase() == 'Y' ||
       (price ?? 0) > 200) {
-    discount += 0.05;
-    print('total price = ${(price ?? 0) + ((price ?? 0) * discount)}');
+    finalPrice += 0.8;
+    print('total price = ${((price ?? 0) * finalPrice).toStringAsFixed(2)}');
   } else {
     print('no discount applied, total price = ${price ?? 0}');
   }
