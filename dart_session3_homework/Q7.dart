@@ -30,3 +30,33 @@ void main() {
       break;
   }
 }
+
+
+void main2() {
+  // 1. الداتا: خريطة تربط المسار باسم الصفحة
+  // String? تعني أن اسم الصفحة قد يكون غير موجود (Null)
+  Map<String, String?> routes = {
+    '/': 'Home Page',
+    '/products': 'Products Page',
+    '/profile': null, // صفحة موجودة كمسار لكن ليس لها عنوان حالياً
+  };
+
+  // 2. المحاكاة: لنفترض أن المستخدم طلب مسار البروفايل
+  String path = '/profile';
+
+  // 3. المنطق: الـ Router
+  switch (path) {
+    case '/':
+    case '/products':
+    case '/profile':
+      // هنا تكمن الروعة: نبحث في الماب، لو القيمة null نضع قيمة بديلة
+      // لاحظ استخدام الـ ! هنا لأننا تأكدنا في الـ case أن المسار موجود في الـ switch
+      // ولكن القيمة نفسها قد تكون null لذلك نستخدم ??
+      String pageName = routes[path] ?? 'Untitled Page';
+      print('Navigating to: $pageName');
+      break;
+
+    default:
+      print('404 - Page Not Found');
+  }
+}
