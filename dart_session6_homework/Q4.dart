@@ -7,8 +7,8 @@ default price. Print their details.
 void main() {
   Product saasApp = Product('Pharmacy', 20000);
   Product customerApp = Product('Telegram');
-  print('Product 1:\n${saasApp.name}, Price: ${saasApp.price}');
-  print('Product 2:\n${customerApp.name}, Price: ${customerApp.price}');
+  saasApp.details();
+  customerApp.details();
 }
 
 class Product {
@@ -17,5 +17,8 @@ class Product {
   Product(String name, [double price = 0]) {
     this.name = name;
     this.price = price;
+  }
+  void details() {
+    print('Product 1:\n${name}, Price: ${price}');
   }
 }

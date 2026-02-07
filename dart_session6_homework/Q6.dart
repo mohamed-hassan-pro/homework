@@ -8,12 +8,12 @@ import 'dart:io';
 void main() {
   String sentence = stdin.readLineSync()!;
   List<String> words = sentence.split(' ');
-
-  int countWords = 0;
-  for (int i = 0; i < words.length; i++) {
-    countWords++;
-  }
-  print('Total words: $countWords');
+  print('Total words: ${words.length}');
+  // int countWords = 0;
+  // for (int i = 0; i < words.length; i++) {
+  //   countWords++;
+  // }
+  // print('Total words: $countWords');
 
   String shortest = words[0];
   String longest = words[0];
