@@ -10,16 +10,16 @@ void main() {
     Movie('D', 7),
   ];
 
-  for (var m in movies) {
-    if (m.rating > 7) {
-      print(m.title);
+  for (var movie in movies) {
+    if (movie.rating > 7) {
+      print(movie.title);
     }
   }
 }
 
 class Movie {
   String title;
-  int rating;
+  num rating;
 
   Movie(this.title, this.rating);
 }

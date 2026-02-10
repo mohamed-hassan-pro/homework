@@ -15,7 +15,7 @@ class Employee {
 
   Employee(this.name, this.salary);
 
-  void giveRaise(int amount) {
-    salary += amount;
+  int giveRaise(int amount) {
+    return salary + amount;
   }
 }
