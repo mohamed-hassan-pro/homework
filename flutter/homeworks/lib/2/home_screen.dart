@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:homeworks/2/features/home/presentation/widgets/quick_stats_section.dart';
-
-import '../widgets/welcome_banner_widget.dart';
+import 'package:homeworks/2/widgets/buttons_sections.dart';
+import 'package:homeworks/2/widgets/features_section.dart';
+import 'package:homeworks/2/widgets/quick_stats_section.dart';
+import 'widgets/welcome_banner_widget.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -19,10 +20,16 @@ class Home extends StatelessWidget {
                   WelcomeBannerWidget(),
                   const SizedBox(height: 24),
                   QuickStatsSection(),
+                  const SizedBox(height: 16),
+                  FeaturesSection(),
                 ],
               ),
             ),
           ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+          child: ButtonsSections(),
         ),
       ),
     );

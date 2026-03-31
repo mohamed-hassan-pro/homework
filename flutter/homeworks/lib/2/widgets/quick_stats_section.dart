@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homeworks/2/core/constants/app_strings.dart';
-import 'package:homeworks/2/core/theme/app_colors.dart';
 
 class QuickStatsSection extends StatelessWidget {
   const QuickStatsSection({super.key});
@@ -24,21 +22,21 @@ class QuickStatsSection extends StatelessWidget {
           children: [
             StatCardItem(
               icon: Icons.people,
-              iconColor: AppColors.iconBgPurple,
+              iconColor: Color(0xff6037B5),
               data: '1,234',
-              label: AppStrings.usersLabel,
+              label: 'Users',
             ),
             StatCardItem(
               icon: Icons.star,
-              iconColor: AppColors.iconBgOrange,
+              iconColor: Color(0xffFA9502),
               data: '4.8',
-              label: AppStrings.ratingLabel,
+              label: 'Rating',
             ),
             StatCardItem(
               icon: Icons.trending_up,
-              iconColor: AppColors.iconBgBlue,
+              iconColor: Color(0xff3D87B1),
               data: '98%',
-              label: AppStrings.successLabel,
+              label: 'Success',
             ),
           ],
         ),
@@ -82,8 +80,8 @@ class StatCardItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: iconColor, size: 24),
-              SizedBox(height: 8),
+              Icon(icon, color: iconColor, size: 28),
+              SizedBox(height: 6),
               Text(
                 data,
                 style: TextStyle(
@@ -94,7 +92,7 @@ class StatCardItem extends StatelessWidget {
               ),
               Text(
                 label,
-                style: TextStyle(color: Colors.black26, fontSize: 12),
+                style: TextStyle(color: Colors.black38, fontSize: 12),
               ),
             ],
           ),

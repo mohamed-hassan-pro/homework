@@ -26,7 +26,7 @@ class WelcomeBannerWidget extends StatelessWidget {
             crossAxisAlignment: .start,
             mainAxisAlignment: .spaceAround,
             children: [
-             const Text(
+              const Text(
                 'Hello! 👋',
                 style: TextStyle(
                   fontSize: 24,
@@ -34,7 +34,7 @@ class WelcomeBannerWidget extends StatelessWidget {
                   fontWeight: .bold,
                 ),
               ),
-             const Text(
+              const Text(
                 'Try your best to build this ui',
                 style: TextStyle(
                   fontSize: 16,
