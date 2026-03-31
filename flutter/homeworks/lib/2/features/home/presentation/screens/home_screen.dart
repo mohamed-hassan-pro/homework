@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homeworks/2/core/constants/app_dimensions.dart';
 import 'package:homeworks/2/features/home/presentation/widgets/quick_stats_section.dart';
 
 import '../widgets/welcome_banner_widget.dart';
@@ -13,12 +12,12 @@ class Home extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.all(AppDimensions.paddingMedium),
+            child: Padding(
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   WelcomeBannerWidget(),
-                  const SizedBox(height: AppDimensions.paddingLarge),
+                  const SizedBox(height: 24),
                   QuickStatsSection(),
                 ],
               ),

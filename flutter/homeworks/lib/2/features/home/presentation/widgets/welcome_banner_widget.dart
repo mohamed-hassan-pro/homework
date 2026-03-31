@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homeworks/2/core/constants/app_dimensions.dart';
-import 'package:homeworks/2/core/constants/app_strings.dart';
-import 'package:homeworks/2/core/theme/app_colors.dart';
-import 'package:homeworks/2/core/theme/app_text_styles.dart';
 
 class WelcomeBannerWidget extends StatelessWidget {
   const WelcomeBannerWidget({super.key});
@@ -10,62 +6,69 @@ class WelcomeBannerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: AppDimensions.paddingSmall,
-        right: AppDimensions.paddingSmall,
-        top: AppDimensions.paddingSmall,
-      ),
+      padding: const EdgeInsets.all(8),
       child: Container(
+        height: 170,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppDimensions.borderRadius),
-          color: AppColors.bannerBackground,
-          boxShadow: [
+          borderRadius: BorderRadius.circular(16),
+          color: const Color(0xff8160B9),
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 4,
-              offset: Offset(0, 2),
+              offset: Offset(0, 4),
             ),
           ],
         ),
-        width: double.infinity,
-        padding: EdgeInsets.all(AppDimensions.paddingMedium),
-
-        child: Column(
-          crossAxisAlignment: .start,
-          children: [
-            Text(AppStrings.welcomeGreeting, style: AppTextStyles.bannerTitle),
-
-            const SizedBox(height: AppDimensions.paddingSmall),
-
-            Text(
-              AppStrings.welcomeSubtitle,
-              style: AppTextStyles.bannerSubtitle,
-            ),
-
-            const SizedBox(height: AppDimensions.paddingMedium),
-
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      AppDimensions.borderRadius,
-                    ),
-                  ),
-                  backgroundColor: AppColors.bannerButton,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: AppDimensions.paddingMedium,
-                  ),
-                ),
-                onPressed: () {},
-                child: Text(
-                  AppStrings.getStartedButton,
-                  style: AppTextStyles.buttonText,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: .start,
+            mainAxisAlignment: .spaceAround,
+            children: [
+             const Text(
+                'Hello! 👋',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: .bold,
                 ),
               ),
-            ),
-          ],
+             const Text(
+                'Try your best to build this ui',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white70,
+                  fontWeight: .w500,
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 4,
+                    shadowColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    backgroundColor: Color(0xff673BB7),
+                  ),
+                  onPressed: () {},
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    child: Text(
+                      'Get Started',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: .bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
