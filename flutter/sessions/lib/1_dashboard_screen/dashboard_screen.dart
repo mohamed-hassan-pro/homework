@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sessions/1_dashboard_screen/core/app_colors.dart';
-import 'package:sessions/1_dashboard_screen/screens/dashboard/widgets/fancy_section.dart';
-import 'package:sessions/1_dashboard_screen/screens/dashboard/widgets/info_card.dart';
-import 'package:sessions/1_dashboard_screen/screens/dashboard/widgets/top_nav_boxes.dart';
+import 'package:sessions/1_dashboard_screen/widgets/fancy_section.dart';
+import 'package:sessions/1_dashboard_screen/widgets/info_card.dart';
+import 'package:sessions/1_dashboard_screen/widgets/top_nav_boxes.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});

@@ -1,60 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:sessions/1_dashboard_screen/core/app_colors.dart';
 
-class CategoryBox extends StatelessWidget {
-  String text;
-  Color color;
-  double width = 70;
-  double height = 40;
-
-  CategoryBox({required this.text, required this.color, super.key});
+class InfoCards extends StatelessWidget {
+  const InfoCards({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(color: color),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: AppColors.textWhite,
+    return Column(
+      children: [
+        Text(
+          'Info Cards',
+          style: TextStyle(
+            color: AppColors.textPrimary,
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
         ),
-      ),
+        SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: .center,
+          children: [
+            InfoSummaryCard(
+              number: '23',
+              color: AppColors.activeGreen,
+              text: 'Active',
+            ),
+            SizedBox(width: 16),
+            InfoSummaryCard(
+              number: '15',
+              color: AppColors.pendingOrange,
+              text: 'Pinding',
+            ),
+            SizedBox(width: 16),
+            InfoSummaryCard(
+              number: '7',
+              color: AppColors.completedGreen,
+              text: 'Completed',
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
-
-class FancyItemCard extends StatelessWidget {
-  String text;
-  Color color;
-  double width = 50;
-  double height = 50;
-
-  FancyItemCard({required this.text, required this.color, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(color: color),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: AppColors.textWhite,
-        ),
-      ),
-    );
-  }
-}
-
 class InfoSummaryCard extends StatelessWidget {
   String number;
   String text;
