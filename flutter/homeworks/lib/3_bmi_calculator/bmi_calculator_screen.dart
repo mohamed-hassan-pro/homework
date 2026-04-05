@@ -23,13 +23,6 @@ class BmiCalculatorScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                // custom app bar
-                // Container(
-                //   height: 56,
-                //   width: double.infinity,
-                //   color: Color(0xff04061d),
-                //   child: Text('BMI CALCULATOR'),
-                // ),
                 Expanded(child: GenderSection()),
                 SizedBox(height: 32),
                 Expanded(child: HeightSliderCard()),
@@ -47,3 +40,11 @@ class BmiCalculatorScreen extends StatelessWidget {
 }
 
 // الحاجة اللي بتتغير وبتتغير بسبب ايه او فين
+
+                // custom app bar
+                // Container(
+                //   height: 56,
+                //   width: double.infinity,
+                //   color: Color(0xff04061d),
+                //   child: Text('BMI CALCULATOR'),
+                // ),

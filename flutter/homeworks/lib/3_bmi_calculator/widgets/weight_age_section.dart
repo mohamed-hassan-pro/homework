@@ -8,17 +8,17 @@ class WeightAgeSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CounterCard(label: 'WEIGHT'),
+        CounterCard(title: 'WEIGHT'),
         SizedBox(width: 32),
-        CounterCard(label: 'AGE'),
+        CounterCard(title: 'AGE'),
       ],
     );
   }
 }
 
 class CounterCard extends StatefulWidget {
-  const CounterCard({super.key, required this.label});
-  final String label;
+  const CounterCard({super.key, required this.title});
+  final String title;
 
   @override
   State<CounterCard> createState() => _CounterCardState();
@@ -39,10 +39,9 @@ class _CounterCardState extends State<CounterCard> {
           ),
           child: Column(
             mainAxisAlignment: .center,
-
             children: [
               Text(
-                widget.label,
+                widget.title,
                 style: const TextStyle(color: Color(0xff6e6f81), fontSize: 16),
               ),
               Text(
