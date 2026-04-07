@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
-  ResultScreen({super.key, required this.bmiResult});
-  late double bmiResult;
+  const ResultScreen({super.key, required this.bmiResult});
+  final double bmiResult;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

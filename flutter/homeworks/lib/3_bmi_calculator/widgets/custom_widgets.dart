@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomDecorationBox extends StatelessWidget {
-  CustomDecorationBox({
+  const CustomDecorationBox({
     super.key,
     required this.child,
     this.color = const Color(0xff17172f),
   });
   final Widget child;
-  Color color;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return Container(
