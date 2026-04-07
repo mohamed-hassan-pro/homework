@@ -5,14 +5,21 @@ import 'package:homeworks/3_bmi_calculator/widgets/gender_section.dart';
 import 'package:homeworks/3_bmi_calculator/widgets/heigh_slider_card.dart';
 import 'package:homeworks/3_bmi_calculator/widgets/weight_age_section.dart';
 
-class BmiCalculatorScreen extends StatelessWidget {
-  BmiCalculatorScreen({super.key});
+class BmiCalculatorScreen extends StatefulWidget {
+  const BmiCalculatorScreen({super.key});
+
+  @override
+  State<BmiCalculatorScreen> createState() => _BmiCalculatorScreenState();
+}
+
+class _BmiCalculatorScreenState extends State<BmiCalculatorScreen> {
   final BMIModel bmiModel = BMIModel(
     age: 18,
     gender: Gender.male,
     height: 180,
     weight: 70,
   );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
