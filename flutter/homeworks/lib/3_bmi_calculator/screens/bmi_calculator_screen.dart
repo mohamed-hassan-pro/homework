@@ -23,6 +23,7 @@ class _BmiCalculatorScreenState extends State<BmiCalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Color(0xff03051a),
       ),

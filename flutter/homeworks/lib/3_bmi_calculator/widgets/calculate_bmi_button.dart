@@ -10,7 +10,6 @@ class CalculateBMIButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Calculator(height: height, weight: weight).calcBMI();
         Navigator.push(
           context,
           MaterialPageRoute(
