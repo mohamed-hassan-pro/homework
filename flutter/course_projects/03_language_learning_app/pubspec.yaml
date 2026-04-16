@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  device_preview: ^1.3.1
   cupertino_icons: ^1.0.8
+  audioplayers: ^6.6.0
 
 dev_dependencies:
   flutter_test:
@@ -20,11 +20,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/utils/images/colors/
-    - assets/utils/images/family_members/
-    - assets/utils/images/numbers/
-    - assets/utils/sounds/colors/
-    - assets/utils/sounds/family_members/
-    - assets/utils/sounds/numbers/
-    - assets/utils/sounds/phrases/
+    - assets/images/colors/
+    - assets/images/family_members/
+    - assets/images/numbers/
+    - assets/sounds/colors/
+    - assets/sounds/family_members/
+    - assets/sounds/numbers/
+    - assets/sounds/phrases/
 
