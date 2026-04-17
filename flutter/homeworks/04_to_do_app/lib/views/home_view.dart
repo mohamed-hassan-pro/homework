@@ -5,14 +5,14 @@ import '../widgets/add_task_bottom_bar.dart';
 import '../widgets/empty_tasks_body.dart';
 
 class ToDoScreen extends StatefulWidget {
-  ToDoScreen({super.key});
+  const ToDoScreen({super.key});
 
   @override
   State<ToDoScreen> createState() => _ToDoScreenState();
 }
 
 class _ToDoScreenState extends State<ToDoScreen> {
-  List<TaskModel> tasks = [];
+  final List<TaskModel> tasks = [];
   void updateTasks() {
     setState(() {});
   }
@@ -29,7 +29,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
       ),
       body: tasks.isEmpty
           ? const EmptyTasksBody()
-          : TasksBody(tasks: tasks, updateTasks: updateTasks,),
+          : TasksBody(tasks: tasks, updateTasks: updateTasks),
       bottomNavigationBar: AddTaskBottomBar(
         tasks: tasks,
         updateTasks: updateTasks,

@@ -17,6 +17,7 @@ class _TasksBodyState extends State<TasksBody> {
     return ColoredBox(
       color: Color(0xfff5fbf9),
       child: ListView.builder(
+        padding: const EdgeInsets.only(top: 8, bottom: 20),
         itemCount: widget.tasks.length,
         itemBuilder: (context, index) {
           return TaskItem(
