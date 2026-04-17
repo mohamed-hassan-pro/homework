@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/to_do_screen.dart';
+import 'package:to_do_app/views/home_view.dart';
 
 void main() {
   runApp(const ToDoApp());
@@ -14,7 +14,7 @@ class ToDoApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: const ToDoScreen(),
+      home:  ToDoScreen(),
     );
   }
 }
