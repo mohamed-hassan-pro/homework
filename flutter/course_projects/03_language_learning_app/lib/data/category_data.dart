@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:language_learning_app/data/colors_data.dart';
-import 'package:language_learning_app/data/family_members_data.dart';
 import 'package:language_learning_app/data/numbers_data.dart';
-import 'package:language_learning_app/data/phrases_data.dart';
-import 'package:language_learning_app/models/category.dart' as model;
+import 'package:language_learning_app/models/category_model.dart' as model;
 import 'package:language_learning_app/views/items_view.dart';
 
 class CategoryData {
-  static List<model.Category> getCategories(BuildContext context) {
+  static List<model.Category> categories(BuildContext context) {
     return [
       model.Category(
         txt: 'Numbers',
         bgColor: Colors.orange,
-        items: NumbersData.numbers,
+        items: Data.numbers,
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -20,7 +17,7 @@ class CategoryData {
               category: model.Category(
                 txt: 'Numbers',
                 bgColor: Colors.orange,
-                items: NumbersData.numbers,
+                items: Data.numbers,
                 onTap: () {},
               ),
             ),
@@ -30,7 +27,7 @@ class CategoryData {
       model.Category(
         txt: 'Family Members',
         bgColor: Colors.green,
-        items: FamilyMembersData.familyMembers,
+        items: Data.familyMembers,
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -38,7 +35,7 @@ class CategoryData {
               category: model.Category(
                 txt: 'Family Members',
                 bgColor: Colors.green,
-                items: FamilyMembersData.familyMembers,
+                items: Data.familyMembers,
                 onTap: () {},
               ),
             ),
@@ -48,7 +45,7 @@ class CategoryData {
       model.Category(
         txt: 'Colors',
         bgColor: Colors.purple,
-        items: ColorsData.colors,
+        items: Data.colors,
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -56,7 +53,7 @@ class CategoryData {
               category: model.Category(
                 txt: 'Colors',
                 bgColor: Colors.purple,
-                items: ColorsData.colors,
+                items: Data.colors,
                 onTap: () {},
               ),
             ),
@@ -66,7 +63,7 @@ class CategoryData {
       model.Category(
         txt: 'Phrases',
         bgColor: Colors.blue,
-        items: PhrasesData.phrases,
+        items: Data.phrases,
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -74,7 +71,7 @@ class CategoryData {
               category: model.Category(
                 txt: 'Phrases',
                 bgColor: Colors.blue,
-                items: PhrasesData.phrases,
+                items: Data.phrases,
                 onTap: () {},
               ),
             ),

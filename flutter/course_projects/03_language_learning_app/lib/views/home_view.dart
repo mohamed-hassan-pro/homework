@@ -14,10 +14,9 @@ class HomeView extends StatelessWidget {
         backgroundColor: Colors.brown,
       ),
       body: ListView.builder(
-        itemCount: CategoryData.getCategories(context).length,
-        itemBuilder: (context, index) => CategoryWidget(
-          category: CategoryData.getCategories(context)[index],
-        ),
+        itemCount: CategoryData.categories(context).length,
+        itemBuilder: (context, index) =>
+            CategoryWidget(category: CategoryData.categories(context)[index]),
       ),
     );
   }

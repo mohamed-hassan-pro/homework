@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:language_learning_app/models/category.dart';
+import 'package:language_learning_app/models/category_model.dart';
 import '../constants.dart';
 import '../widgets/item_widget.dart';
 

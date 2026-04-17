@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
-import 'package:language_learning_app/models/category.dart';
+import 'package:language_learning_app/models/category_model.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key, required this.category});
