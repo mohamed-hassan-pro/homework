@@ -88,6 +88,9 @@ Data Entry Specialist	Jul 2025 – Sep 2025
 CSkilled | Remote
 •Maintained 100% data accuracy for educational curriculum datasets; identified manual bottlenecks and proposed AI-integration strategies that led to promotion to Technical Content Developer within 3 months.
 SELECTED PROJECTS & ACHIEVEMENTS
+1st Place — Tech Mastery Hackathon	2025
+• Served as Scrum Master and Technical Leader for "Malaz," a comprehensive car services ecosystem connecting 4+ service types (maintenance, winching, washing, garages) with car owners.
+• Orchestrated the development of a real-time price-bidding system and map-based service discovery, enabling users to receive competitive offers and locate the nearest providers in real-time.
 3rd Place — Dev Arena Mobile Competition (Flutter Track)	Oct 2025
 Issued by ITIDA & TIEC
 •Secured 3rd position in a high-intensity 2-hour sprint, successfully transforming Figma designs into a fully functional E-commerce application — demonstrating rapid system integration under pressure.

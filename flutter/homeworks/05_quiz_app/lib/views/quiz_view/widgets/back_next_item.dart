@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
-import '../../../shared_widgets/custom_text.dart';
 
 class BackNextItem extends StatelessWidget {
   const BackNextItem({
@@ -31,11 +30,13 @@ class BackNextItem extends StatelessWidget {
           children: [
             if (text == 'Back') Icon(icon, color: AppColors.white, size: 16),
             if (text == 'Back') const SizedBox(width: 8),
-            CustomText(
-              data: text,
-              color: AppColors.white,
-              size: 16,
-              fontWeight: FontWeight.w500,
+            Text(
+              text,
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             if (text == 'Next') const SizedBox(width: 8),
             if (text == 'Next') Icon(icon, color: AppColors.white, size: 16),

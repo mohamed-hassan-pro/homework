@@ -15,7 +15,7 @@ class StructureViews extends StatelessWidget {
         body: Stack(
           children: [
             Positioned.fill(
-              child: Image.asset('assets/images/image.png', fit: BoxFit.cover),
+              child: Image.asset('assets/images/bg_image.png', fit: BoxFit.cover),
             ),
             SafeArea(
               child: Padding(

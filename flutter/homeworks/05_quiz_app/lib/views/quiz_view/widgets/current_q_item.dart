@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
-import 'package:quiz_app/shared_widgets/custom_text.dart';
 
 class CurrentQItem extends StatelessWidget {
   final int currentQIndex;
@@ -17,11 +16,13 @@ class CurrentQItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          CustomText(
-            data: 'Question $currentQIndex',
-            color: AppColors.white,
-            size: 16,
-            fontWeight: FontWeight.w500,
+          Text(
+            'Question $currentQIndex',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),

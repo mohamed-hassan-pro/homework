@@ -16,6 +16,7 @@ class QuizApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Quiz App',
       theme: ThemeData(
+        fontFamily: 'Gilroy',
         scaffoldBackgroundColor: AppColors.bgScaffold,
         useMaterial3: true,
       ),

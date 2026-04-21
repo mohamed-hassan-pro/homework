@@ -4,14 +4,14 @@ import '../widgets/tasks_body.dart';
 import '../widgets/add_task_bottom_bar.dart';
 import '../widgets/empty_tasks_body.dart';
 
-class ToDoScreen extends StatefulWidget {
-  const ToDoScreen({super.key});
+class ToDoView extends StatefulWidget {
+  const ToDoView({super.key});
 
   @override
-  State<ToDoScreen> createState() => _ToDoScreenState();
+  State<ToDoView> createState() => _ToDoViewState();
 }
 
-class _ToDoScreenState extends State<ToDoScreen> {
+class _ToDoViewState extends State<ToDoView> {
   final List<TaskModel> tasks = [];
   void updateTasks() {
     setState(() {});

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
-import 'package:quiz_app/shared_widgets/custom_text.dart';
 import 'widgets/start_q_button.dart';
 
 class StartView extends StatelessWidget {
@@ -11,24 +10,24 @@ class StartView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(
-          data: 'Good morning,',
-          color: AppColors.white,
-          size: 16,
-          fontWeight: FontWeight.w300,
+        Text(
+          'Good morning,',
+          style: TextStyle(
+            color: AppColors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
         ),
-        const CustomText(
-          data: 'New topic is waiting',
-          color: AppColors.white,
-          size: 24,
-          fontWeight: FontWeight.w500,
+        Text(
+          'New topic is waiting',
+          style: TextStyle(
+            color: AppColors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         const Spacer(),
-        Row(
-          children: [
-            ExpanedStartQuizButton(),
-          ],
-        ),
+        Row(children: [Expanded(child: StartQuizButton())]),
       ],
     );
   }

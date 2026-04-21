@@ -14,7 +14,7 @@ class ToDoApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home:  ToDoScreen(),
+      home: ToDoView(),
     );
   }
 }

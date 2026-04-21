@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
 import 'package:quiz_app/views/quiz_view/widgets/back_next_item.dart';
-import 'package:quiz_app/shared_widgets/custom_text.dart';
 import '../../models/questions_data.dart';
 import '../../models/questions_model.dart';
 import 'widgets/answer_item.dart';
@@ -9,7 +8,6 @@ import 'widgets/current_q_item.dart';
 
 class QuizView extends StatefulWidget {
   QuizView({super.key});
-
   @override
   State<QuizView> createState() => _QuizViewState();
 }
@@ -20,13 +18,17 @@ class _QuizViewState extends State<QuizView> {
   int currentQIndex = 0;
 
   void nextQuestion() {
-    currentQIndex++;
-    setState(() {});
+    if (currentQIndex < questions.length-1) {
+      currentQIndex++;
+      setState(() {});
+    }
   }
 
   void prevQuestion() {
-    currentQIndex--;
-    setState(() {});
+    if (currentQIndex > 0) {
+      currentQIndex--;
+      setState(() {});
+    }
   }
 
   @override
@@ -35,14 +37,20 @@ class _QuizViewState extends State<QuizView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CurrentQItem(currentQIndex: currentQIndex + 1),
+
         const SizedBox(height: 16),
-        CustomText(
-          data: questions[currentQIndex].text,
-          color: AppColors.white,
-          size: 24,
-          fontWeight: FontWeight.w500,
+
+        Text(
+          questions[currentQIndex].text,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+          ),
         ),
+
         const SizedBox(height: 32),
+
         ListView.separated(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -51,7 +59,9 @@ class _QuizViewState extends State<QuizView> {
           itemBuilder: (context, index) =>
               AnswerItem(answer: questions[currentQIndex].answers[index]),
         ),
+
         const Spacer(),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
