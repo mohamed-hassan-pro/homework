@@ -19,7 +19,7 @@ class QuizApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.bgScaffold,
         useMaterial3: true,
       ),
-      home: const StuctViews(body: StartView()),
+      home: const StructureViews(body: StartView()),
     );
   }
 }

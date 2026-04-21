@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../../../core/app_colors.dart';
 import '../../../shared_widgets/custom_text.dart';
@@ -6,9 +5,7 @@ import '../../../shared_widgets/struct_views.dart';
 import '../../quiz_view/quiz_view.dart';
 
 class ExpanedStartQuizButton extends StatelessWidget {
-  const ExpanedStartQuizButton({
-    super.key,
-  });
+  const ExpanedStartQuizButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,7 @@ class ExpanedStartQuizButton extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => StuctViews(body: QuizView()),
+              builder: (context) => StructureViews(body: QuizView()),
             ),
           );
         },

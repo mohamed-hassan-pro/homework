@@ -1,0 +1,187 @@
+### pub.dev
+[Searching for packages](https://pub.dev/help/search)
+[Package scoring and pub points](https://pub.dev/help/scoring)
+
+### Flutter
+[Using packages](https://flutter.dev/using-packages/)
+[Developing packages and plugins](https://flutter.dev/developing-packages/)
+[Publishing a package](https://dart.dev/tools/pub/publishing)
+
+### Dart
+[Using packages](https://dart.dev/guides/packages)
+[Publishing a package](https://dart.dev/tools/pub/publishing)
+
+### pub.dev
+[Searching for packages](https://pub.dev/help/search)
+[Package scoring and pub points](https://pub.dev/help/scoring)
+
+### Flutter
+[Using packages](https://flutter.dev/using-packages/)
+[Developing packages and plugins](https://flutter.dev/developing-packages/)
+[Publishing a package](https://dart.dev/tools/pub/publishing)
+
+### Dart
+[Using packages](https://dart.dev/guides/packages)
+[Publishing a package](https://dart.dev/tools/pub/publishing)
+
+# hijri 3.0.0 hijri: ^3.0.0 copied to clipboard
+
+[4 years ago](https://pub.dev/packages/hijri)
+[Dart](https://pub.dev/packages?q=sdk%3Adart)
+[Flutter](https://pub.dev/packages?q=sdk%3Aflutter)
+[Android](https://pub.dev/packages?q=platform%3Aandroid)
+[iOS](https://pub.dev/packages?q=platform%3Aios)
+[Linux](https://pub.dev/packages?q=platform%3Alinux)
+[macOS](https://pub.dev/packages?q=platform%3Amacos)
+[web](https://pub.dev/packages?q=platform%3Aweb)
+[Windows](https://pub.dev/packages?q=platform%3Awindows)
+
+### Metadata
+
+Convert between Hijri Calendar and Gregorian Calendar date support Arabic and English Local.
+[More...](https://pub.dev/packages/hijri)
+- Readme
+- [Changelog](https://pub.dev/packages/hijri/changelog)
+- [Example](https://pub.dev/packages/hijri/example)
+- [Installing](https://pub.dev/packages/hijri/install)
+- [Versions](https://pub.dev/packages/hijri/versions)
+- [Scores](https://pub.dev/packages/hijri/score)
+[Changelog](https://pub.dev/packages/hijri/changelog)
+[Example](https://pub.dev/packages/hijri/example)
+[Installing](https://pub.dev/packages/hijri/install)
+[Versions](https://pub.dev/packages/hijri/versions)
+[Scores](https://pub.dev/packages/hijri/score)
+
+# Hijri [#](https://pub.dev/packages/hijri#hijri)
+
+[#](https://pub.dev/packages/hijri#hijri)
+Hijri Calendar Converter
+
+#### Usage
+
+```
+//Suppose current gregorian data/time is: Mon May 29 00:27:33 2018 var _today = HijriCalendar.now(); print(_today.hYear); // 1439 print(_today.hMonth); // 9 print(_today.hDay); // 14 print(_today.getDayName()); // 14 // Get month length in days print(_today.lengthOfMonth); // 30 days print(_today.toFormat("MMMM dd yyyy")); //Ramadan 14 1439
+```
+
+
+```
+//Suppose current gregorian data/time is: Mon May 29 00:27:33 2018 var _today = HijriCalendar.now(); print(_today.hYear); // 1439 print(_today.hMonth); // 9 print(_today.hDay); // 14 print(_today.getDayName()); // 14 // Get month length in days print(_today.lengthOfMonth); // 30 days print(_today.toFormat("MMMM dd yyyy")); //Ramadan 14 1439
+```
+
+
+##### Change Local
+
+```
+HijriCalendar.setLocal(locale);
+```
+
+
+```
+HijriCalendar.setLocal(locale);
+```
+
+
+##### From Gregorian to Ummalqura
+
+```
+var h_date = HijriCalendar.fromDate(DateTime(2018, 11, 12)); print(h_date.toString()); //04/03/1440H print(h_date.getShortMonthName()); //Rab1 print(h_date.getLongMonthName()); //Rabi' al-awwal print(h_date.lengthOfMonth); // 29 days
+```
+
+
+```
+var h_date = HijriCalendar.fromDate(DateTime(2018, 11, 12)); print(h_date.toString()); //04/03/1440H print(h_date.getShortMonthName()); //Rab1 print(h_date.getLongMonthName()); //Rabi' al-awwal print(h_date.lengthOfMonth); // 29 days
+```
+
+
+##### Check if date is valid
+
+```
+// var _check_date = HijriCalendar(); _check_date.hYear = 1439; _check_date.hMonth = 11; _check_date.hDay = 30; print(_check_date.isValid()); // false -> This month is only 29 days
+```
+
+
+```
+// var _check_date = HijriCalendar(); _check_date.hYear = 1439; _check_date.hMonth = 11; _check_date.hDay = 30; print(_check_date.isValid()); // false -> This month is only 29 days
+```
+
+
+##### From Ummalqura to Gregorian
+
+```
+//From Ummalqura to Gregorian var g_date = HijriCalendar(); print(g_date.hijriToGregorian(1415, 7, 27)); //1994-12-29 00:00:00.000
+```
+
+
+```
+//From Ummalqura to Gregorian var g_date = HijriCalendar(); print(g_date.hijriToGregorian(1415, 7, 27)); //1994-12-29 00:00:00.000
+```
+
+
+##### Format
+
+```
+var _format = HijriCalendar.now(); print(_format.fullDate()); //Thulatha, Ramadan 14, 1439 h print(_format.toFormat("mm dd yy")); //09 14 39
+```
+
+
+```
+var _format = HijriCalendar.now(); print(_format.fullDate()); //Thulatha, Ramadan 14, 1439 h print(_format.toFormat("mm dd yy")); //09 14 39
+```
+
+
+##### Compare
+
+```
+//Suppose current hijri data is: Thulatha, Ramadan 14, 1439 h print(_today.isAfter(1440, 11, 12)); // false print(_today.isBefore(1440, 11, 12)); // true print(_today.isAtSameMomentAs(1440, 11, 12)); // false
+```
+
+
+```
+//Suppose current hijri data is: Thulatha, Ramadan 14, 1439 h print(_today.isAfter(1440, 11, 12)); // false print(_today.isBefore(1440, 11, 12)); // true print(_today.isAtSameMomentAs(1440, 11, 12)); // false
+```
+
+[144likes140points12.7kdownloads](https://pub.dev/packages/hijri/score)
+
+### Documentation
+[API reference](https://pub.dev/documentation/hijri/latest/)
+
+### Publisher
+unverified uploader
+
+### Metadata
+Convert between Hijri Calendar and Gregorian Calendar date support Arabic and English Local.
+[Repository (GitHub)](https://github.com/ahmedoid/hijri_date)[View/report issues](https://github.com/ahmedoid/hijri_date/issues)
+
+### License
+BSD-2-Clause ([license](https://pub.dev/packages/hijri/license))
+
+### More
+[Packages that depend on hijri](https://pub.dev/packages?q=dependency%3Ahijri)
+
+### ← Metadata
+[144likes140points12.7kdownloads](https://pub.dev/packages/hijri/score)
+
+### Documentation
+[API reference](https://pub.dev/documentation/hijri/latest/)
+
+### Publisher
+unverified uploader
+
+### Metadata
+Convert between Hijri Calendar and Gregorian Calendar date support Arabic and English Local.
+[Repository (GitHub)](https://github.com/ahmedoid/hijri_date)[View/report issues](https://github.com/ahmedoid/hijri_date/issues)
+
+### License
+BSD-2-Clause ([license](https://pub.dev/packages/hijri/license))
+
+### More
+[Packages that depend on hijri](https://pub.dev/packages?q=dependency%3Ahijri)
+[Back](https://pub.dev/packages/hijri)
+[Dart language](https://dart.dev/)
+[Report package](https://pub.dev/report?subject=package%3Ahijri&url=https%3A%2F%2Fpub.dev%2Fpackages%2Fhijri)
+[Policy](https://pub.dev/policy)
+[Terms](https://www.google.com/intl/en/policies/terms/)
+[API Terms](https://developers.google.com/terms/)
+[Security](https://pub.dev/security)
+[Privacy](https://www.google.com/intl/en/policies/privacy/)
+[Help](https://pub.dev/help)

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class StuctViews extends StatelessWidget {
-  const StuctViews({super.key, required this.body});
+class StructureViews extends StatelessWidget {
+  const StructureViews({super.key, required this.body});
   final Widget body;
   @override
   Widget build(BuildContext context) {

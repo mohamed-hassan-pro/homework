@@ -1,0 +1,63 @@
+name: ayyam_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # State Management
+  flutter_bloc: ^9.1.1
+
+  # Networking
+  dio: ^5.9.2
+
+  # Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # Notifications
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.1
+
+  # Routing
+  go_router: ^14.8.1
+
+  # Utilities
+  intl: ^0.20.2
+  equatable: ^2.0.7
+  hijri: ^3.0.0
+  url_launcher: ^6.3.2
+  showcaseview: ^5.0.1
+  font_awesome_flutter: ^10.7.0
+  permission_handler: ^12.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  hive_generator: ^2.0.1
+  build_runner: 2.4.13
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/ayyam_app_logo.webp"
+  adaptive_icon_background: "#0D47A1"
+  adaptive_icon_foreground: "assets/ayyam_app_logo.webp"
+  adaptive_icon_round: "assets/ayyam_app_logo.webp"
+  remove_alpha_ios: true
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/
