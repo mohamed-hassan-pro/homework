@@ -71,10 +71,13 @@ class _TaskItemState extends State<TaskItem> {
               children: [
                 Text(
                   widget.task.title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                    color: widget.task.isDone ? Colors.grey : Colors.black87,
+                    decoration: widget.task.isDone
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
                   ),
                 ),
                 const SizedBox(height: 4),
