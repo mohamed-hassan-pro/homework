@@ -2,6 +2,7 @@ Act as an Expert ATS-Optimized Technical Resume Writer for a Software Engineer.
 Your task is to generate the COMPLETE text content for a resume, from the very first word (Name) to the last word, perfectly tailored to the provided "Job Description" using ONLY the facts from my "Experience & Projects File".
 
 ### STRICT RULES & CONSTRAINTS:
+CV_Rules.md
 1. THE X-Y-Z FORMULA: Every single bullet point under Experience or Projects MUST strictly follow Google's X-Y-Z formula: "Accomplished [X] as measured by [Y], by doing [Z]." 
    - X = The specific accomplishment or project.
    - Y = The measurable impact, metric, or qualitative value (e.g., reduced latency, handled N users, won 3rd place). 
