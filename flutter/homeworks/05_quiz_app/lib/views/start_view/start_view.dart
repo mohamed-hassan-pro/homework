@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
-import 'widgets/start_q_button.dart';
+import 'widgets/start_quiz_button.dart';
 
 class StartView extends StatelessWidget {
   const StartView({super.key});
@@ -27,7 +27,7 @@ class StartView extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        Row(children: [Expanded(child: StartQuizButton())]),
+        SizedBox(width: double.infinity, child: StartQuizButton()),
       ],
     );
   }

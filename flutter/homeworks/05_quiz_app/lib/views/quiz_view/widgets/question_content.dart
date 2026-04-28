@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../models/questions_model.dart';
+import '../../../models/question_model.dart';
 import 'answer_item.dart';
 
 class QuestionContent extends StatelessWidget {
-  final QuestionsModel question;
+  final QuestionModel question;
   final Set<String> selectedAnswers;
   final void Function(String answer, bool newValue) onAnswerSelected;
 
@@ -16,7 +16,7 @@ class QuestionContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMultiChoice = question.correctanswer.length > 1;
+    final isMultiChoice = question.correctAnswers.length > 1;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,27 +1,27 @@
-import '../models/questions_model.dart';
+import '../models/question_model.dart';
 
 class QuestionsData {
-  static final List<QuestionsModel> questions = [
-    QuestionsModel(
+  static final List<QuestionModel> questions = [
+    QuestionModel(
       text:
           'How would you describe your level of satisfaction with the healthcare system?',
       answers: ['Strongly satisfied', 'Satisfied', 'Neutral', 'Not Satisfied'],
-      correctanswer: ['Strongly satisfied'],
+      correctAnswers: ['Strongly satisfied'],
     ),
-    QuestionsModel(
+    QuestionModel(
       text: 'What vitamins do you take?',
       answers: ['Vitamin D3', 'Vitamin B', 'Zinc', 'Magnesium'],
-      correctanswer: ['Vitamin D3', 'Vitamin B'],
+      correctAnswers: ['Vitamin D3', 'Vitamin B'],
     ),
-    QuestionsModel(
+    QuestionModel(
       text: 'How often do you exercise?',
       answers: ['Every day', 'Several times a week', 'Once a week', 'Rarely'],
-      correctanswer: ['Every day', 'Several times a week'],
+      correctAnswers: ['Every day', 'Several times a week'],
     ),
-    QuestionsModel(
+    QuestionModel(
       text: 'How many hours do you sleep per night?',
       answers: ['7-8 hours', '6-7 hours', '5-6 hours', 'Less than 5 hours'],
-      correctanswer: ['7-8 hours'],
+      correctAnswers: ['7-8 hours'],
     ),
   ];
 }

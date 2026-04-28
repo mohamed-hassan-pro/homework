@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class StructureViews extends StatelessWidget {
-  const StructureViews({super.key, required this.body});
+class AppBackground extends StatelessWidget {
+  const AppBackground({super.key, required this.body});
   final Widget body;
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(

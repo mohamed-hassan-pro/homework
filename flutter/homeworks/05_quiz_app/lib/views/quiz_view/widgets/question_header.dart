@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CurrentQItem extends StatelessWidget {
-  final int currentQIndex;
-  const CurrentQItem({super.key, required this.currentQIndex});
+class QuestionHeader extends StatelessWidget {
+  final int currentQuestionIndex;
+  const QuestionHeader({super.key, required this.currentQuestionIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,13 @@ class CurrentQItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            'assets/svg/$currentQIndex.svg',
+            'assets/svg/$currentQuestionIndex.svg',
             width: 20,
             height: 20,
           ),
           const SizedBox(width: 8),
           Text(
-            'Question $currentQIndex',
+            'Question $currentQuestionIndex',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 16,

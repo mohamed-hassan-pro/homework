@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/app_colors.dart';
-import '../../../shared_widgets/struct_views.dart';
+import '../../../shared_widgets/app_background.dart';
 import '../../quiz_view/quiz_view.dart';
 
 class StartQuizButton extends StatelessWidget {
@@ -19,11 +19,11 @@ class StartQuizButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => StructureViews(body: QuizView()),
+            builder: (context) => const AppBackground(body: QuizView()),
           ),
         );
       },
-      child: Text(
+      child: const Text(
         'Start Quiz',
         style: TextStyle(
           color: AppColors.Primary,

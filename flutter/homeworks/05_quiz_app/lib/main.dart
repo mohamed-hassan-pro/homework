@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
 import 'package:quiz_app/views/start_view/start_view.dart';
-import 'package:quiz_app/shared_widgets/struct_views.dart';
+import 'package:quiz_app/shared_widgets/app_background.dart';
 
 void main() {
   runApp(const QuizApp());
@@ -20,7 +20,7 @@ class QuizApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.bgScaffold,
         useMaterial3: true,
       ),
-      home: const StructureViews(body: StartView()),
+      home: const AppBackground(body: StartView()),
     );
   }
 }

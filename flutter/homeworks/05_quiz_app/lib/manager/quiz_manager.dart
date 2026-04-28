@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../data/questions_data.dart';
+import '../shared_widgets/app_background.dart';
+import '../views/result_view/result_view.dart';
 
 class QuizManager extends ChangeNotifier {
-  int currentQIndex = 0;
+  int currentQuestionIndex = 0;
   late final PageController pageController;
 
   Map<int, Set<String>> selectedAnswersMap = {};
@@ -17,17 +19,31 @@ class QuizManager extends ChangeNotifier {
     super.dispose();
   }
 
-  void nextQuestion() {
-    if (currentQIndex < QuestionsData.questions.length - 1) {
+  void nextQuestion(BuildContext context) {
+    if (currentQuestionIndex < QuestionsData.questions.length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
+      );
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AppBackground(
+            body: ResultView(
+              score: calculateScore(),
+              totalQuestions: QuestionsData.questions.length,
+              selectedAnswersMap: selectedAnswersMap,
+              onRetry: resetQuiz,
+            ),
+          ),
+        ),
       );
     }
   }
 
   void prevQuestion() {
-    if (currentQIndex > 0) {
+    if (currentQuestionIndex > 0) {
       pageController.previousPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -36,11 +52,10 @@ class QuizManager extends ChangeNotifier {
   }
 
   void updateCurrentQuestionIndex(int newIndex) {
-    currentQIndex = newIndex;
-    notifyListeners(); // إخبار الشاشة أن رقم السؤال تغير لكي تعيد رسم نفسها
+    currentQuestionIndex = newIndex;
+    notifyListeners();
   }
 
-  // هذه الدالة تتولى منطق اختيار الإجابة بالكامل
   void toggleAnswer({
     required int questionIndex,
     required String answerText,
@@ -48,29 +63,25 @@ class QuizManager extends ChangeNotifier {
     required bool isMultiChoice,
   }) {
     if (isMultiChoice) {
-      // حالة المتعدد: نضيف أو نحذف من المجموعة
       if (newValue) {
         selectedAnswersMap.putIfAbsent(questionIndex, () => {}).add(answerText);
       } else {
         selectedAnswersMap[questionIndex]?.remove(answerText);
       }
     } else {
-      // حالة الإجابة الواحدة: نمسح القديم ونضع الإجابة الجديدة فقط
       selectedAnswersMap[questionIndex] = {answerText};
     }
 
-    notifyListeners(); // إخبار الشاشة أن الإجابات المختارة تغيرت
+    notifyListeners();
   }
 
-  // دالة لحساب النتيجة النهائية
   int calculateScore() {
     int score = 0;
     for (int i = 0; i < QuestionsData.questions.length; i++) {
       final question = QuestionsData.questions[i];
       final selected = selectedAnswersMap[i] ?? {};
-      final correct = question.correctanswer.toSet();
+      final correct = question.correctAnswers.toSet();
 
-      // يجب أن يتطابق عدد الإجابات المختارة مع الصحيحة وأن تحتويها كلها
       if (selected.length == correct.length && selected.containsAll(correct)) {
         score++;
       }
@@ -78,9 +89,8 @@ class QuizManager extends ChangeNotifier {
     return score;
   }
 
-  // دالة لتصفير الكويز للبدء من جديد
   void resetQuiz() {
-    currentQIndex = 0;
+    currentQuestionIndex = 0;
     selectedAnswersMap.clear();
     pageController.jumpToPage(0);
     notifyListeners();

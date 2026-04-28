@@ -1,11 +1,11 @@
-class QuestionsModel {
+class QuestionModel {
   final String text;
   final List<String> answers;
-  final List<String> correctanswer;
+  final List<String> correctAnswers;
 
-  QuestionsModel({
+  QuestionModel({
     required this.text,
     required this.answers,
-    required this.correctanswer,
+    required this.correctAnswers,
   });
 }
