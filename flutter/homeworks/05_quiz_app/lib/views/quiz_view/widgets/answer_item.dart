@@ -1,47 +1,61 @@
 import 'package:flutter/material.dart';
 import '../../../core/app_colors.dart';
 
-class AnswerItem extends StatefulWidget {
+class AnswerItem extends StatelessWidget {
   final String answer;
-  const AnswerItem({super.key, required this.answer});
+  final bool isSelected;
+  final bool isMultiChoice;
+  final void Function(bool?)? onChanged;
 
-  @override
-  State<AnswerItem> createState() => _AnswerItemState();
-}
+  const AnswerItem({
+    super.key,
+    required this.answer,
+    required this.isSelected,
+    this.isMultiChoice = false,
+    required this.onChanged,
+  });
 
-class _AnswerItemState extends State<AnswerItem> {
-  bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 49,
-      decoration: BoxDecoration(
-        color: _isChecked == false ? Colors.white : AppColors.accent,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      padding: const EdgeInsets.symmetric(vertical: 13),
-      child: Row(
-        children: [
-          Checkbox(
-            activeColor: AppColors.Primary,
-            checkColor: AppColors.white,
-            value: _isChecked,
-            onChanged: (bool? newValue) {
-              setState(() {
-                _isChecked = newValue!;
-              });
-            },
-            shape: CircleBorder(),
+    return GestureDetector(
+      onTap: () {
+        if (onChanged != null) {
+          onChanged!(!isSelected);
+        }
+      },
+      child: Container(
+        height: 49,
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.accent : Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: isSelected ? AppColors.Primary : Colors.transparent,
+            width: 1.5,
           ),
-          Text(
-            widget.answer,
-            style: TextStyle(
-              color: AppColors.Primary,
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          children: [
+            Checkbox(
+              activeColor: AppColors.Primary,
+              checkColor: AppColors.white,
+              value: isSelected,
+              onChanged: onChanged,
+              // شكل الـ Checkbox يتغير بناءً على نوع السؤال (دائرة للسنجل، ومربع للمتعدد)
+              shape: const CircleBorder(),
             ),
-          ),
-        ],
+            Expanded(
+              child: Text(
+                answer,
+                style: TextStyle(
+                  color: isSelected ? Colors.white : AppColors.Primary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

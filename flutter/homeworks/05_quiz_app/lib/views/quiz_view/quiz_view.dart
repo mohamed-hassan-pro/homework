@@ -1,85 +1,109 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
 import 'package:quiz_app/views/quiz_view/widgets/back_next_item.dart';
-import '../../models/questions_data.dart';
-import '../../models/questions_model.dart';
-import 'widgets/answer_item.dart';
+import '../../data/questions_data.dart';
+import '../../manager/quiz_manager.dart';
+import '../../shared_widgets/struct_views.dart';
+import '../result_view/result_view.dart';
+import 'widgets/question_content.dart';
 import 'widgets/current_q_item.dart';
 
 class QuizView extends StatefulWidget {
-  QuizView({super.key});
+  const QuizView({super.key});
+
   @override
   State<QuizView> createState() => _QuizViewState();
 }
 
 class _QuizViewState extends State<QuizView> {
-  List<QuestionsModel> questions = QuestionsData.questions;
+  late final QuizManager quizManager;
 
-  int currentQIndex = 0;
-
-  void nextQuestion() {
-    if (currentQIndex < questions.length-1) {
-      currentQIndex++;
-      setState(() {});
-    }
+  @override
+  void initState() {
+    super.initState();
+    quizManager = QuizManager();
   }
 
-  void prevQuestion() {
-    if (currentQIndex > 0) {
-      currentQIndex--;
-      setState(() {});
-    }
+  @override
+  void dispose() {
+    quizManager.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CurrentQItem(currentQIndex: currentQIndex + 1),
-
-        const SizedBox(height: 16),
-
-        Text(
-          questions[currentQIndex].text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-
-        const SizedBox(height: 32),
-
-        ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: questions[currentQIndex].answers.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 8),
-          itemBuilder: (context, index) =>
-              AnswerItem(answer: questions[currentQIndex].answers[index]),
-        ),
-
-        const Spacer(),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return ListenableBuilder(
+      listenable: quizManager,
+      builder: (context, child) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BackNextItem(
-              text: 'Back',
-              icon: Icons.arrow_back_ios_new,
-              onPressed: prevQuestion,
-              bgColor: Colors.transparent,
+            CurrentQItem(currentQIndex: quizManager.currentQIndex + 1),
+            const SizedBox(height: 16),
+            Expanded(
+              child: PageView.builder(
+                controller: quizManager.pageController,
+                onPageChanged: quizManager.updateCurrentQuestionIndex,
+                itemCount: QuestionsData.questions.length,
+                itemBuilder: (context, index) {
+                  final question = QuestionsData.questions[index];
+                  final isMultiChoice = question.correctanswer.length > 1;
+
+                  return QuestionContent(
+                    question: question,
+                    selectedAnswers:
+                        quizManager.selectedAnswersMap[index] ?? {},
+                    onAnswerSelected: (String answerText, bool newValue) {
+                      quizManager.toggleAnswer(
+                        questionIndex: index,
+                        answerText: answerText,
+                        newValue: newValue,
+                        isMultiChoice: isMultiChoice,
+                      );
+                    },
+                  );
+                },
+              ),
             ),
-            BackNextItem(
-              text: 'Next',
-              icon: Icons.arrow_forward_ios,
-              onPressed: nextQuestion,
-              bgColor: AppColors.bgButton,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BackNextItem(
+                  text: 'Back',
+                  icon: Icons.arrow_back_ios_new,
+                  onPressed: quizManager.prevQuestion,
+                  bgColor: Colors.transparent,
+                ),
+                BackNextItem(
+                  text: 'Next',
+                  icon: Icons.arrow_forward_ios,
+                  onPressed: () {
+                    if (quizManager.currentQIndex == QuestionsData.questions.length - 1) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => StructureViews(
+                            body: ResultView(
+                              score: quizManager.calculateScore(),
+                              totalQuestions: QuestionsData.questions.length,
+                              onRetry: () {
+                                quizManager.resetQuiz();
+                              },
+                            ),
+                          ),
+                        ),
+                      );
+                    } else {
+                      quizManager.nextQuestion();
+                    }
+                  },
+                  bgColor: AppColors.bgButton,
+                ),
+              ],
             ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 }

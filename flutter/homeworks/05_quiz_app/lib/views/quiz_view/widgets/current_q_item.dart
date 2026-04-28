@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/app_colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CurrentQItem extends StatelessWidget {
   final int currentQIndex;
@@ -8,17 +9,24 @@ class CurrentQItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
+      width: 143,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.bgButton,
         borderRadius: BorderRadius.circular(100),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SvgPicture.asset(
+            'assets/svg/$currentQIndex.svg',
+            width: 20,
+            height: 20,
+          ),
+          const SizedBox(width: 8),
           Text(
             'Question $currentQIndex',
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w500,

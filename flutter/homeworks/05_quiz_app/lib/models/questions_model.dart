@@ -1,7 +1,7 @@
 class QuestionsModel {
   final String text;
   final List<String> answers;
-  final String correctanswer;
+  final List<String> correctanswer;
 
   QuestionsModel({
     required this.text,
